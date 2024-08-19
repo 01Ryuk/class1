@@ -46,6 +46,14 @@
 
 <script setup>
 import { ref, reactive, onMounted, computed } from 'vue'
+import axios from 'axios'
+
+
+axios
+ .get('https://newsapi.org/v2/top-headlines?country=ng&apiKey=YOUR_API_KEY')
+ .then(response => {
+    data.value = response.data.articles
+  })
 
 
 
