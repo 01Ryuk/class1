@@ -2,7 +2,7 @@
   <div class="bg-info-subtle">
     <div class="container">
       <div class="min-vh-100 d-flex flex-column justify-content-center align-items-center">
-        <h1 class="mb-7"> Welcome</h1>
+        <h1 class="mb-7"> Welcome 👋</h1>
         <h3 class="mb-3">
           <router-link to="/news-site">Click here to read news</router-link>
         </h3>
