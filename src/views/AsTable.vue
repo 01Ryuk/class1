@@ -28,12 +28,9 @@
                         <td>{{ item.writer }}</td>
                         <td>{{ item.date }}</td>
                       </tr>
-
                     </tbody>
                   </table>
                 </div>
-
-
               </div>
             </div>
           </div>
@@ -41,74 +38,65 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, computed } from 'vue'
-import axios from 'axios'
-
+import { ref, reactive, onMounted, computed } from "vue";
+import axios from "axios";
 
 axios
- .get('https://newsapi.org/v2/top-headlines?country=ng&apiKey=YOUR_API_KEY')
- .then(response => {
-    data.value = response.data.articles
-  })
-
-
-
+  .get("https://newsapi.org/v2/top-headlines?country=ng&apiKey=YOUR_API_KEY")
+  .then((response) => {
+    data.value = response.data.articles;
+  });
 
 // looping
 // conditional statements
 // re-usable components
 
+const data = ref([]);
 
-const data = ref([])
-
-const btnClicker = ref(null)
+const btnClicker = ref(null);
 
 onMounted(() => {
-  loadNewData()
-})
+  loadNewData();
+});
 
 function loadNewData() {
-  // 
-  data.value = [{
-    id: 1,
-    title: 'Tinubu escapes Madness',
-    description: `Ada told us that Tinubu has escaped from Yaba left, and this was a serious matter, we thank God for his life`,
-    writer: 'Ada',
-    date: '2024-08-14'
-  },
-  {
-    id: 2,
-    title: 'Protests has been suspended',
-    description: `The protest has just been called off anonymously by the people after the President made a speech`,
-    writer: 'Chizuruoke',
-    date: '2024-08-13'
-  },
+  //
+  data.value = [
+    {
+      id: 1,
+      title: "Tinubu escapes Madness",
+      description: `Ada told us that Tinubu has escaped from Yaba left, and this was a serious matter, we thank God for his life`,
+      writer: "Ada",
+      date: "2024-08-14",
+    },
+    {
+      id: 2,
+      title: "Protests has been suspended",
+      description: `The protest has just been called off anonymously by the people after the President made a speech`,
+      writer: "Chizuruoke",
+      date: "2024-08-13",
+    },
 
-  {
-    id: 3,
-    title: 'reseacher make breakthrough',
-    description: `Researchers of Caleb Academy founds out that the air from air cpnditioning causes drowsiness`,
-    writer: 'Ifeanyi',
-    date: '2024-08-15'
-  }
-  ]
-
+    {
+      id: 3,
+      title: "reseacher make breakthrough",
+      description: `Researchers of Caleb Academy founds out that the air from air cpnditioning causes drowsiness`,
+      writer: "Ifeanyi",
+      date: "2024-08-15",
+    },
+  ];
 }
 
-
-const currentDesc = ref('')
+const currentDesc = ref("");
 function loadDescriptionOfThisNews(id) {
   console.log(id);
-  const news = data.value.find(x => x.id == id)
+  const news = data.value.find((x) => x.id == id);
   currentDesc.value = news.description;
-  btnClicker.value.click()
-
+  btnClicker.value.click();
 }
-
 </script>
 
 <style scoped></style>

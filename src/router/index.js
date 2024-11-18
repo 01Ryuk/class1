@@ -5,6 +5,7 @@ import AsTable from '../views/AsTable.vue'
 import Weather from '../views/Weather.vue'
 import Weather2 from '../views/Weather2.vue'
 import Finances from '../views/Finances.vue'
+import BibleVerse from '../views/BibleVerse.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,12 @@ const router = createRouter({
       path: '/Finances',
       name: 'Finances',
       component: Finances
+      
+    },
+    {
+      path: '/BibleVerse',
+      name: 'Bibleverse',
+      component: BibleVerse
       
     },
     
